@@ -13,8 +13,9 @@ public class CreditCardValidation {
         int sum = 0;
 
         char[] charArray = creditCardNumber.toCharArray();
+
         for (int i = 0; i < charArray.length; i++) {
-            if (!((i + 1) % 2 == 0))
+            if (!(isOdd(i)))
                 continue;
 
             Character number = charArray[i];
@@ -31,7 +32,7 @@ public class CreditCardValidation {
         char[] charArray = creditCardNumber.toCharArray();
 
         for (int i = 0; i < charArray.length; i++) {
-            if ((i + 1) % 2 == 0)
+            if (isOdd(i))
                 continue;
 
             Character number = charArray[i];
@@ -40,5 +41,9 @@ public class CreditCardValidation {
         }
 
         return sum;
+    }
+
+    private boolean isOdd(int position) {
+        return (position + 1) % 2 == 0;
     }
 }
