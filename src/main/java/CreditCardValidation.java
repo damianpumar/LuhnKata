@@ -1,10 +1,6 @@
 public class CreditCardValidation {
     public boolean isValid(String creditCardNumber) {
-        int sum = 0;
-
-        sum += getSumS1(creditCardNumber);
-
-        sum += getSumS2(creditCardNumber);
+        int sum = getSumS1(creditCardNumber) + getSumS2(creditCardNumber);
 
         return String.valueOf(sum).endsWith("0");
     }
@@ -18,12 +14,7 @@ public class CreditCardValidation {
             if (!(isOdd(i)))
                 continue;
 
-            Character number = charArray[i];
-
-            int partialNumber = Character.getNumericValue(number) * 2;
-
-            for (Character digit : String.valueOf(partialNumber).toCharArray())
-                sum += Character.getNumericValue(digit);
+            sum += sumEachDigit(multiply(charArray[i]));
         }
 
         return sum;
@@ -38,10 +29,21 @@ public class CreditCardValidation {
             if (isOdd(i))
                 continue;
 
-            Character number = charArray[i];
-
-            sum += Character.getNumericValue(number);
+            sum += Character.getNumericValue(charArray[i]);
         }
+
+        return sum;
+    }
+
+    private int multiply(Character number) {
+        return Character.getNumericValue(number) * 2;
+    }
+
+    private int sumEachDigit(int number) {
+        int sum = 0;
+
+        for (Character digit : String.valueOf(number).toCharArray())
+            sum += Character.getNumericValue(digit);
 
         return sum;
     }
