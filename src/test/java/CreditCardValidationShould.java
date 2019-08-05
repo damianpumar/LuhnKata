@@ -10,7 +10,8 @@ import static org.junit.Assert.assertTrue;
 public class CreditCardValidationShould {
 
     @Parameters({
-            "00000000000"
+            "00000000000",
+            "50505050505"
     })
     @Test
     public void is_valid(String creditCardNumber) {
