@@ -20,10 +20,13 @@ public class CreditCardValidation {
 
             Character number = charArray[i];
 
-            sum += Character.getNumericValue(number);
+            int partialNumber = Character.getNumericValue(number) * 2;
+
+            for (Character digit : String.valueOf(partialNumber).toCharArray())
+                sum += Character.getNumericValue(digit);
         }
 
-        return sum * 2;
+        return sum;
     }
 
     private int getSumS1(String creditCardNumber) {

@@ -12,7 +12,6 @@ public class CreditCardValidationShould {
     @Parameters({
             "00000000000",
             "50505050505",
-            "55500000000",
             "32300000000"
     })
     @Test
@@ -24,7 +23,9 @@ public class CreditCardValidationShould {
 
     @Parameters({
             "00000000001",
-            "03500000005"
+            "55500000000",
+            "03500000005",
+            "37300000000"
     })
     @Test
     public void is_invalid(String creditCardNumber) {
