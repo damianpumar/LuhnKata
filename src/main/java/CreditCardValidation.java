@@ -1,5 +1,5 @@
 public class CreditCardValidation {
     public boolean isValid(String creditCardNumber) {
-        return true;
+        return creditCardNumber.endsWith("0");
     }
 }
